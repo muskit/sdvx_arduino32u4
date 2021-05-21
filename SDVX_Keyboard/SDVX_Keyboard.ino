@@ -26,10 +26,6 @@
 Encoder enc_r(ENCODER_R0, ENCODER_R1);
 Encoder enc_l(ENCODER_L0, ENCODER_L1);
 
-// for Serial output funs
-long count_l = 0, count_r = 0;
-unsigned long i = 0;
-
 void setup() {
   pinMode(BT_A, INPUT_PULLUP);
   pinMode(BT_B, INPUT_PULLUP);
@@ -41,7 +37,6 @@ void setup() {
 
   Mouse.begin();
   Keyboard.begin();
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -106,8 +101,4 @@ void loop() {
   #endif
   enc_l.write(0);
   enc_r.write(0);
-
-  count_l += leftDelta;
-  count_r += rightDelta;
-  Serial.println(count_l+count_r);
 }
